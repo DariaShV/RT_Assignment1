@@ -32,7 +32,7 @@ $ python run.py Ex1.py
   # Solution:
  Flowchart: ex1.drawio.png
 
- ![Alt-текст](https://github.com/ShangAnastasiia/Assignment1/blob/main/assignment_1/ex1.drawio.png "Flowchart")
+ ![Alt-текст](https://github.com/DariaShV/RT_Assignment1/blob/main/ex1.drawio.png "Flowchart")
  
  ## DRIVE function
  ____
@@ -114,17 +114,28 @@ ____
     Returns:
 distance of the closest golden token (-1 if no golden token is detected at a distance more than 3)
 angle between the robot and the golden token (-1 if no golden token is detected at a distance more than 3)
-```
- def forward_token():
-    forward=8
-    for token in R.see():
-        if token.dist < forward and token.rot_y>-5 and token.rot_y<5 and token.info.marker_type is MARKER_TOKEN_GOLD:
-            forward=token.dist
-	    rot=token.rot_y
-    if forward<3:
-	return forward, rot
-    else:
-   	return -1, -1
- ```
+
   ____
- 
+ ##  rotate():
+	 ____
+ Rotation function
+    Return:
+    Correct, if the angle is negative, then the robot turns left
+    False, if the angle is positive, the robot turns right.
+```
+def rotate():
+    dist = dist_rot
+    # Detecting any obstacles from the sides to avoid it by rotating 
+    for token in R.see():
+        if (-110<token.rot_y<-70 or 70<token.rot_y<110) and token.dist < dist and token.info.marker_type is MARKER_TOKEN_GOLD:
+            dist = token.dist
+            rotate = token.rot_y
+    # Turning right with a speed of 25 in 0.1 sec
+    if rotate < 0:
+        turn(1400, 0.2)
+        return False
+    # Turning left with a speed of 25 in 0.1 sec
+    else:
+        turn(-1400, 0.2)
+        return True
+ ```	
