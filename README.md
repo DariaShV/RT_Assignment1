@@ -117,11 +117,12 @@ angle between the robot and the golden token (-1 if no golden token is detected 
 
   ____
  ##  rotate():
-	 ____
- Rotation function
-    Return:
-    Correct, if the angle is negative, then the robot turns left
-    False, if the angle is positive, the robot turns right.
+____
+Rotation function
+    
+Return:
+ Correct, if the angle is negative, then the robot turns left
+ False, if the angle is positive, the robot turns right.
 ```
 def rotate():
     dist = dist_rot
