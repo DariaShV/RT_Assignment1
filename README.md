@@ -32,7 +32,7 @@ $ python run.py Ex1.py
   # Solution:
  Flowchart: ex1.drawio.png
 
- ![Alt-текст](https://github.com/DariaShV/RT_Assignment1/blob/main/ex1.drawio.png "Flowchart")
+ ![Alt-текст](https://github.com/DariaShV/RT_Assignment1/blob/main/ex1.png "Flowchart")
  
  ## DRIVE function
  ____
